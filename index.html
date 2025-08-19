@@ -41,8 +41,9 @@
       background-size:cover;background-position:center;background-repeat:no-repeat
     }
     /* Images pro dans Services */
-    .svc-img{width:100%;height:10.5rem;object-fit:cover;border-radius:.75rem;box-shadow:0 12px 28px -18px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);margin-bottom:1.25rem}
+    .svc-img{width:100%;height:9.5rem;object-fit:cover;border-radius:.75rem;box-shadow:0 12px 28px -18px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);margin-bottom:1.25rem}
     @media (min-width:768px){.svc-img{height:11.5rem}}
+
 
     /* Diaporama Hero (cross-fade) */
     .hero-wrap{position:relative;overflow:hidden}
@@ -70,11 +71,11 @@
 </head>
 <body class="min-h-screen bg-navy text-offwhite" id="top">
   <!-- Header -->
-  <header class="h-16 md:h-20 px-4 md:px-8 sticky top-0 z-40 backdrop-blur bg-navy/80 border-b border-white/10">
+ <header class="h-14 md:h-20 px-4 md:px-8 sticky top-0 z-40 backdrop-blur bg-navy/80 border-b border-white/10">
     <div class="max-w-7xl mx-auto h-full flex items-center gap-3 md:gap-6">
       <a href="#top" class="h-full flex items-center gap-3 shrink-0" aria-label="MELYN, retour en haut">
         <img
-          id="brandLogo"
+          id="brandLogo" loading="lazy"
           src="assets/img/melynelogo.png"
           data-srcs='[
             "assets/img/melynelogo.png",
@@ -119,8 +120,8 @@
     <div class="hero-overlay"></div>
 
     <div class="relative max-w-7xl mx-auto text-center">
-      <h1 class="hero-title text-4xl md:text-6xl mb-5">IA Data Consulting</h1>
-      <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
+      <h1 class="hero-title text-[clamp(28px,7vw,40px)] md:text-6xl mb-4">IA Data Consulting</h1>
+      <p class="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
         Transformez vos données en atouts stratégiques avec des solutions IA, Data & Cloud alignées sur vos enjeux métiers.
       </p>
       <div class="flex justify-center gap-4">
@@ -131,7 +132,7 @@
   </section>
 
   <!-- About (MODIFIÉ) -->
-  <section id="about" class="py-20 px-4 md:px-8">
+  <section id="about" class="py-20 px-4 md:px-8" class="scroll-mt-24 py-20 px-4 md:px-8">
     <div class="relative rounded-2xl overflow-hidden">
       <div id="aboutBg" class="absolute inset-0 about-bg"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/86 to-navy/78"></div>
@@ -200,18 +201,17 @@
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-20 px-4 md:px-8 bg-gradient-to-b from-navy to-[#112031]">
+  <section id="services" class="scroll-mt-24 py-20 px-4 md:px-8" class="py-20 px-4 md:px-8 bg-gradient-to-b from-navy to-[#112031]">
     <svg width="0" height="0" class="absolute"><defs><linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06B6D4"/><stop offset="1" stop-color="#1E66F5"/></linearGradient></defs></svg>
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Services</h2>
         <p class="text-white/70 max-w-2xl mx-auto">Une offre complète pour accélérer vos projets par la data et l'IA.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         <!-- IA -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-ai-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-ai-img" loading="lazy" class="svc-img"
                src="assets/img/service_ai.png"
                data-srcs='[
                  "assets/img/service_ai.png",
@@ -235,8 +235,8 @@
         </div>
 
         <!-- Automatisation -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-auto-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-auto-img" loading="lazy" class="svc-img"
                src="assets/img/service_automation.png"
                data-srcs='[
                  "assets/img/service_automation.png",
@@ -262,8 +262,8 @@
         </div>
 
         <!-- Données -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-data-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-data-img" loading="lazy" class="svc-img"
                src="assets/img/service_data.png"
                data-srcs='[
                  "assets/img/service_data.png",
@@ -288,8 +288,8 @@
         </div>
 
         <!-- BI -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-bi-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-bi-img" loading="lazy" class="svc-img"
                src="assets/img/service_bi.png"
                data-srcs='[
                  "assets/img/service_bi.png",
@@ -315,8 +315,8 @@
         </div>
 
         <!-- Cloud -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-cloud-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-cloud-img" loading="lazy" class="svc-img"
                src="assets/img/service_cloud.png"
                data-srcs='[
                  "assets/img/service_cloud.png",
@@ -342,8 +342,8 @@
         </div>
 
         <!-- Sécurité -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-8 card-hover">
-          <img id="svc-sec-img" class="svc-img"
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 card-hover">
+          <img id="svc-sec-img" loading="lazy" class="svc-img"
                src="assets/img/service_security.png"
                data-srcs='[
                  "assets/img/service_security.png",
@@ -376,15 +376,15 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt·e à transformer votre entreprise ?</h2>
       <p class="text-white/90 text-xl mb-10 max-w-2xl mx-auto">Parlons de vos objectifs et choisissez une trajectoire data/IA sécurisée et rentable.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" id="demoBtn" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100">Demander une démo</a>
-        <a href="tel:+33123456789" class="bg-transparent border-2 border-white px-8 py-4 rounded-full font-bold hover:bg-white/10">+33 6 20 01 52 97</a>
+        <a href="#contact" id="demoBtn" class="w-full sm:w-auto text-center bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100"> Demander une démo </a>
+        <a href="tel:+33123456789" class="w-full sm:w-auto text-center bg-transparent border-2 border-white px-8 py-4 rounded-full font-bold hover:bg-white/10"> +33 6 20 01 52 97</a>
       </div>
     </div>
   </section>
   <!-- Footer -->
-  <footer id="contact" class="py-12 px-4 md:px-8 bg-navy border-t border-white/10">
+  <footer id="contact" class="scroll-mt-24 py-20 px-4 md:px-8" class="py-12 px-4 md:px-8 bg-navy border-t border-white/10">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="h-10 w-10 rounded-md overflow-hidden ring-1 ring-white/10">
