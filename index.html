@@ -369,12 +369,11 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt·e à transformer votre entreprise ?</h2>
       <p class="text-white/90 text-xl mb-10 max-w-2xl mx-auto">Parlons de vos objectifs et choisissez une trajectoire data/IA sécurisée et rentable.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100">Demander une démo</a>
+        <a href="#contact" id="demoBtn" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100">Demander une démo</a>
         <a href="tel:+33123456789" class="bg-transparent border-2 border-white px-8 py-4 rounded-full font-bold hover:bg-white/10">+33 6 20 01 52 97</a>
       </div>
     </div>
   </section>
-
   <!-- Footer -->
   <footer id="contact" class="py-12 px-4 md:px-8 bg-navy border-t border-white/10">
     <div class="max-w-7xl mx-auto">
@@ -557,5 +556,28 @@
       startHeroCarousel();
     });
   </script>
+  <!-- Calendly (popup de prise de rendez-vous) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  (function () {
+    var btn = document.getElementById('demoBtn');
+    if (!btn) return;
+
+    var calendlyUrl = 'https://calendly.com/melyn/demo-30min'; // <-- REMPLACE ICI
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Si le script Calendly est chargé, on ouvre la popup ; sinon, on redirige
+      if (window.Calendly && Calendly.initPopupWidget) {
+        Calendly.initPopupWidget({
+          url: calendlyUrl + '?hide_gdpr_banner=1&primary_color=1E66F5'
+        });
+      } else {
+        window.location.href = calendlyUrl;
+      }
+    });
+  })();
+</script>
 </body>
 </html>
