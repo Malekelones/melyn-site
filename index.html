@@ -67,6 +67,19 @@
     .team-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);transition:.25s transform,.25s box-shadow}
     .team-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -22px rgba(0,0,0,.6)}
     .rounded-3xl{border-radius:1.25rem}
+    @media (max-width: 767px){
+  #mobileMenu{
+    position: fixed;
+    top: 4rem; /* hauteur du header */
+    left: 0; right: 0;
+    z-index: 50;
+    background: rgba(11,19,32,.95); /* navy opaque */
+    border-top: 1px solid rgba(255,255,255,.1);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,.6);
+    padding: 1rem;
+  }
+  #mobileMenu a{ color: rgba(255,255,255,.92); }
+}
   </style>
 </head>
 <body class="min-h-screen bg-navy text-offwhite" id="top">
@@ -104,7 +117,11 @@
   </svg>
 </button>
 </div>
-    <div id="mobileMenu" class="md:hidden hidden px-4 pt-4" role="dialog" aria-label="Menu mobile">
+    <div id="mobileMenu"
+     class="md:hidden hidden fixed top-16 inset-x-0 z-50
+            bg-navy/95 backdrop-blur-sm border-t border-white/10
+            px-4 py-4 shadow-xl"
+     role="dialog" aria-label="Menu mobile">
       <ul class="space-y-3 text-base">
         <li><a href="#about" class="block py-1 text-white/80 hover:text-white">À propos</a></li>
         <li><a href="#services" class="block py-1 text-white/80 hover:text-white">Services</a></li>
@@ -112,7 +129,7 @@
       </ul>
     </div>
   </header>
-
+<div id="menuOverlay" class="md:hidden hidden fixed inset-0 z-40 bg-black/50"></div>
   <!-- Hero avec diaporama -->
   <section class="py-14 md:py-20 px-4 md:px-8 hero-wrap">
     <div id="heroBgA" class="hero-bg"></div>
@@ -449,10 +466,21 @@
     // Menu mobile
     const btn = document.getElementById('menuBtn');
     const menu = document.getElementById('mobileMenu');
+    const ovl  = document.getElementById('menuOverlay');
+
     btn?.addEventListener('click', () => {
-      const open = !menu.classList.contains('hidden');
-      menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!open));
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    ovl?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    document.body.style.overflow = isOpen ? '' : 'hidden'; // lock scroll
+    });
+
+    ovl?.addEventListener('click', () => {
+    menu.classList.add('hidden');
+    ovl.classList.add('hidden');
+    btn?.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
     });
 
     // Rotateur À propos (si jamais tu remets une image)
