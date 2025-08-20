@@ -641,21 +641,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-<!-- Typebot Bubble -->
-<script src="https://cdn.jsdelivr.net/npm/@typebot.io/js"></script>
+<!-- Crisp Chat -->
 <script>
-  window.addEventListener('load', function () {
-    if (window.Typebot && Typebot.initBubble) {
-      Typebot.initBubble({
-        typebot: "TYPEBOT_ID",
-        theme: { button: { backgroundColor: "#1E66F5" } },
-        previewMessage: { message: "Besoin d'une démo ? Je vous guide 👋" }
-      });
-      console.log("Typebot initialisé");
-    } else {
-      console.error("Typebot non chargé");
-    }
-  });
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "CRISP_ID";
+  (function () {
+    var d = document, s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    s.onload = function(){ console.log("Crisp chargé"); };
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
 </script>
 </body>
 </html>
