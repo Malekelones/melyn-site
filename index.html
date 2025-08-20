@@ -458,31 +458,62 @@
       </div>
     </div>
   </footer>
-
   <script>
     // Année
     document.getElementById('y').textContent = new Date().getFullYear();
-
     // Menu mobile
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('mobileMenu');
-    const ovl  = document.getElementById('menuOverlay');
+    document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('menuOverlay');
 
-    btn?.addEventListener('click', () => {
+  const openMenu = () => {
+    menu?.classList.remove('hidden');
+    overlay?.classList.remove('hidden');
+    btn?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('overflow-hidden');
+  };
+  const closeMenu = () => {
+    menu?.classList.add('hidden');
+    overlay?.classList.add('hidden');
+    btn?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  btn?.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden');
-    menu.classList.toggle('hidden');
-    ovl?.classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    document.body.style.overflow = isOpen ? '' : 'hidden'; // lock scroll
-    });
+    isOpen ? closeMenu() : openMenu();
+  });
+  overlay?.addEventListener('click', closeMenu);
 
-    ovl?.addEventListener('click', () => {
-    menu.classList.add('hidden');
-    ovl.classList.add('hidden');
-    btn?.setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
-    });
+  // Liens du menu : fermer + scroll vers l'ancre avec offset
+  const onNavClick = (e) => {
+    const href = e.currentTarget.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    e.preventDefault();
+    const id = href.slice(1);
+    const target = document.getElementById(id);
+    closeMenu();
 
+    const header = document.querySelector('header');
+    const offset = (header ? header.offsetHeight : 64) + 8;
+
+    const go = () => {
+      if (target) {
+        const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else {
+        location.hash = '#' + id; // fallback
+      }
+    };
+    // iOS a parfois besoin d’un tick pour réactiver le scroll
+    setTimeout(go, 50);
+  };
+
+  document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(a => {
+    a.addEventListener('click', onNavClick, { passive: false });
+  });
+});
     // Rotateur À propos (si jamais tu remets une image)
     (function(){
       const imgEl = document.getElementById('aboutImg');
