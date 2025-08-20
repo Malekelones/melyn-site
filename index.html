@@ -641,13 +641,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-  <!-- Typebot Bubble -->
+<!-- Typebot Bubble -->
 <script src="https://cdn.jsdelivr.net/npm/@typebot.io/js"></script>
 <script>
-  Typebot.initBubble({
-    typebot: "YOUR_TYPEBOT_ID",
-    theme: { button: { backgroundColor: "#1E66F5" } },
-    previewMessage: { message: "Besoin d'une démo ? Je vous guide 👋" }
+  window.addEventListener('load', function () {
+    if (window.Typebot && Typebot.initBubble) {
+      Typebot.initBubble({
+        typebot: "TYPEBOT_ID",
+        theme: { button: { backgroundColor: "#1E66F5" } },
+        previewMessage: { message: "Besoin d'une démo ? Je vous guide 👋" }
+      });
+      console.log("Typebot initialisé");
+    } else {
+      console.error("Typebot non chargé");
+    }
   });
 </script>
 </body>
