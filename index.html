@@ -460,16 +460,6 @@
     </div>
   </footer>
   <script>
-    // Année
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // iOS a parfois besoin d’un tick pour réactiver le scroll
-    setTimeout(go, 50);
-  };
-
-  document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(a => {
-    a.addEventListener('click', onNavClick, { passive: false });
-  });
-});
     // Rotateur À propos (si jamais tu remets une image)
     (function(){
       const imgEl = document.getElementById('aboutImg');
