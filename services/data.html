@@ -1,0 +1,47 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gestion des Données — MELYN</title>
+<meta name="description" content="ETL/ELT, qualité, gouvernance, Lakehouse (Databricks, Snowflake), ADF/Talend.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0B1320',primary:'#1E66F5',cyanbrand:'#06B6D4',offwhite:'#EAF2F8'}}}}</script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');body{font-family:Poppins,system-ui,sans-serif}</style>
+</head><body class="bg-navy text-offwhite">
+<header class="h-16 px-4 md:px-8 sticky top-0 z-40 bg-navy/80 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto h-full flex items-center gap-6"><a href="/" class="flex items-center gap-3"><img src="/assets/img/melynelogo.png" class="h-10" alt="MELYN"></a>
+    <nav class="ml-auto hidden md:block"><ul class="flex gap-8 text-sm">
+      <li><a href="/#about" class="text-white/80 hover:text-white">À propos</a></li>
+      <li><a href="/#services" class="text-white/80 hover:text-white">Services</a></li>
+      <li><a href="/#contact" class="text-white/80 hover:text-white">Contact</a></li></ul></nav></div></header>
+<main class="max-w-6xl mx-auto px-4 md:px-8 py-12">
+  <h1 class="text-3xl md:text-4xl font-bold mb-3">Gestion des Données</h1>
+  <p class="text-white/70 mb-8">Qualité, intégration et gouvernance pour fiabiliser vos décisions.</p>
+
+  <section class="grid md:grid-cols-2 gap-8">
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+      <h2 class="text-xl font-semibold mb-3">Périmètre</h2>
+      <ul class="list-disc ml-5 space-y-2 text-white/80">
+        <li>ETL/ELT (ADF, Talend), ingestion temps réel</li>
+        <li>Data Lake/Lakehouse (Databricks, Snowflake)</li>
+        <li>Qualité des données & MDM</li>
+        <li>Gouvernance, catalogue & traçabilité</li>
+      </ul>
+    </div>
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+      <h2 class="text-xl font-semibold mb-3">Résultats</h2>
+      <ul class="list-disc ml-5 space-y-2 text-white/80">
+        <li>Datasets certifiés & SLA de mise à dispo</li>
+        <li>Conformité & audit facilités</li>
+        <li>Coûts d’opérations optimisés</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="mt-10 flex flex-col sm:flex-row gap-4">
+    <a href="/#contact" class="bg-white text-primary px-6 py-3 rounded font-semibold text-center">Nous contacter</a>
+    <a href="/long-terme.html" class="border border-white px-6 py-3 rounded text-center">Projet long terme</a>
+    <a href="https://calendly.com/onesmalek-benamor/30min" class="bg-white/10 px-6 py-3 rounded text-center">Planifier 30 min</a>
+  </div>
+</main>
+<footer class="border-t border-white/10 mt-12 py-8 text-center text-white/60">© <span id="y"></span> MELYN</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body></html>
