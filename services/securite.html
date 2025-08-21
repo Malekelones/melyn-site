@@ -5,7 +5,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{navy:'#0B1320',primary:'#1E66F5',cyanbrand:'#06B6D4',offwhite:'#EAF2F8'}}}}</script>
 <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');body{font-family:Poppins,system-ui,sans-serif}</style>
-</head><body class="bg-navy text-offwhite">
+<style>
+  .service-hero{
+    position:relative; border-radius:1rem; overflow:hidden;
+    height:12rem; /* mobile */ 
+  }
+  @media (min-width:768px){ .service-hero{ height:16rem; } }
+  .service-hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:var(--hero-img, none);
+    background-size:cover; background-position:center; background-repeat:no-repeat;
+    filter:saturate(1.05) contrast(1.02);
+  }
+  .service-hero::after{
+    content:""; position:absolute; inset:0;
+    /* dégradé pour lisibilité du titre */
+    background:linear-gradient(180deg, rgba(11,19,32,.35), rgba(11,19,32,.85) 70%, rgba(11,19,32,.95));
+  }
+</style>
+</head>
+<body class="bg-navy text-offwhite" style="--hero-img:url('assets/img/bg-securite.jpg')">
 <header class="h-16 px-4 md:px-8 sticky top-0 z-40 bg-navy/80 backdrop-blur border-b border-white/10">
   <div class="max-w-7xl mx-auto h-full flex items-center gap-6"><a href="/" class="flex items-center gap-3"><img src="/assets/img/melynelogo.png" class="h-10" alt="MELYN"></a>
     <nav class="ml-auto hidden md:block"><ul class="flex gap-8 text-sm">
