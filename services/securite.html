@@ -25,8 +25,13 @@
 </style>
 </head>
 <body class="bg-navy text-offwhite" style="--hero-img:url('/assets/img/bg-securite.jpg')">
-<header class="h-16 px-4 md:px-8 sticky top-0 z-40 bg-navy/80 backdrop-blur border-b border-white/10">
-  <div class="max-w-7xl mx-auto h-full flex items-center gap-6"><a href="/" class="flex items-center gap-3"><img src="/assets/img/melynelogo.png" class="h-10" alt="MELYN"></a>
+<header class="h-16 md:h-20 px-4 md:px-8 sticky top-0 z-40 bg-navy/80 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto h-full flex items-center gap-6">
+    <a href="/" class="h-full flex items-center gap-3 shrink-0">
+      <img src="/assets/img/melynelogo.png"
+           class="h-full w-auto object-contain"
+           alt="MELYN" loading="eager" decoding="async">
+    </a>
     <nav class="ml-auto hidden md:block"><ul class="flex gap-8 text-sm">
       <li><a href="/#about" class="text-white/80 hover:text-white">À propos</a></li>
       <li><a href="/#services" class="text-white/80 hover:text-white">Services</a></li>
