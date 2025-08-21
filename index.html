@@ -653,10 +653,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Typebot.initBubble({
     typebot: "my-typebot-fbqc63w",
-    theme: {
-      button: { backgroundColor: "#1D1D1D" },
-      chatWindow: { backgroundColor: "#f1f1f1" },
+ theme: {
+      button: { backgroundColor: "#1E66F5", iconColor: "#FFFFFF", size: "large" },
+      chatWindow: { backgroundColor: "#0B1320", textColor: "#EAF2F8" }
     },
+    position: "right",     // "left" si besoin
+    right: 24,
+    bottom: 24,
+    zIndex: 99999          // passe au-dessus de tout
   });
 </script>
 </body>
