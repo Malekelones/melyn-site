@@ -148,7 +148,7 @@ const fr = {
         watermark: 'Powered by MELYN IA',
     },
     ceoPage: {
-        title: 'Profil CEO — Malek Ben Amor',
+        title: 'Profil CEO Malek Ben Amor',
         subtitle: 'Consultante en Transformation Digitale & IA',
         intro: 'Consultante en transformation digitale, elle pilote des projets de bout en bout : cadrage, ateliers, rédaction de spécifications technico-fonctionnelles, pilotage delivery, recette/UAT et mise en production.',
         experience: 'Elle combine des certifications en IA avec une solide expérience en automatisation (workflows, orchestrations, intégrations, reporting) et une expertise éprouvée en migration de données et modernisation (mapping, qualité, reprise, cutover, sécurisation des flux).',
