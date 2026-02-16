@@ -5,13 +5,13 @@
 import { t } from '../i18n.js';
 
 const HERO_SLIDES = [
-    '/assets/img/hero_slide_01.jpg',
-    '/assets/img/hero_slide_02.jpg',
-    '/assets/img/hero_slide_03.jpg',
-    '/assets/img/hero_slide_04.jpg',
-    '/assets/img/hero_slide_05.jpg',
-    '/assets/img/hero_slide_06.jpg',
-    '/assets/img/hero_slide_07.jpg',
+    '/public/assets/img/hero_slide_01.jpg',
+    '/public/assets/img/hero_slide_02.jpg',
+    '/public/assets/img/hero_slide_03.jpg',
+    '/public/assets/img/hero_slide_04.jpg',
+    '/public/assets/img/hero_slide_05.jpg',
+    '/public/assets/img/hero_slide_06.jpg',
+    '/public/assets/img/hero_slide_07.jpg',
 ];
 
 export function renderHero() {

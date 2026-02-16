@@ -42,7 +42,7 @@ const ar = {
                 role: 'المؤسسة والرئيس التنفيذي',
                 bio: 'مستشارة في التحول الرقمي متخصصة في البيانات والأتمتة ومنصات الأعمال، ترافق المنظمات الدولية في مشاريع تقنية معقدة.',
                 location: 'باريس / تونس',
-                avatar: '/assets/img/malek_ceo.png',
+                avatar: '/public/assets/img/malek_ceo.png',
                 linkedin: 'https://www.linkedin.com/in/malek-ben-amor-b76542159/',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -51,7 +51,7 @@ const ar = {
                 role: 'مهندسة برمجيات',
                 bio: 'مهندسة ديناميكية تتمتع بخبرة قوية في التطبيقات المدعومة بالذكاء الاصطناعي وتقنيات الويب الحديثة.',
                 location: 'تونس، تونس',
-                avatar: '/assets/img/sahar.jpeg',
+                avatar: '/public/assets/img/sahar.jpeg',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -60,7 +60,7 @@ const ar = {
                 role: 'مهندس برمجيات',
                 bio: 'مطور ذو خبرة متخصص في المعماريات القابلة للتطوير وتطوير الويب الشامل.',
                 location: 'تونس، تونس',
-                avatar: '/assets/img/Hassene.png',
+                avatar: '/public/assets/img/Hassene.png',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -69,7 +69,7 @@ const ar = {
                 role: 'مهندس برمجيات',
                 bio: 'مطور شغوف من INSAT/ESPRIT، يركز على تقديم حلول رقمية عالية التأثير.',
                 location: 'تونس، تونس',
-                avatar: '/assets/img/motez.png',
+                avatar: '/public/assets/img/motez.png',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             }

@@ -60,9 +60,9 @@ export function renderHome() {
           </div>
 
           <div class="about-slideshow-container reveal delay-2">
-            <div class="about-slide active" style="background-image:url('/assets/img/Team.PNG')"></div>
-            <div class="about-slide" style="background-image:url('/assets/img/Team1.JPG')"></div>
-            <div class="about-slide" style="background-image:url('/assets/img/Team2.PNG')"></div>
+            <div class="about-slide active" style="background-image:url('/public/assets/img/Team.PNG')"></div>
+            <div class="about-slide" style="background-image:url('/public/assets/img/Team1.JPG')"></div>
+            <div class="about-slide" style="background-image:url('/public/assets/img/Team2.PNG')"></div>
             <div class="about-slideshow-overlay"></div>
           </div>
         </div>

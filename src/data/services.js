@@ -11,7 +11,7 @@ const services = [
             en: 'Copilot agents to automate, accelerate and secure your operations.',
             ar: 'وكلاء مساعدون لأتمتة وتسريع وتأمين عملياتك.'
         },
-        heroImage: '/assets/img/bg-ia.jpg',
+        heroImage: '/public/assets/img/bg-ia.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v2M12 3v2M15 3v2M9 19v2M12 19v2M15 19v2M3 9h2M3 12h2M3 15h2M19 9h2M19 12h2M19 15h2"/></svg>`,
         tags: ['GPT', 'Mistral', 'LLM', 'RAG', 'Copilots'],
         scope: {
@@ -70,7 +70,7 @@ const services = [
             en: 'RPA + low-code for measurable end-to-end workflows.',
             ar: 'RPA + low-code لسير عمل متكامل وقابل للقياس.'
         },
-        heroImage: '/assets/img/bg-automatisation.jpg',
+        heroImage: '/public/assets/img/bg-automatisation.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 7h3M7 9v4h5M14 12h3M12 14v3h4"/></svg>`,
         tags: ['UiPath', 'Power Automate', 'n8n', 'RPA', 'Low-Code'],
         scope: {
@@ -129,7 +129,7 @@ const services = [
             en: 'Data migration and quality, compliance and traceability.',
             ar: 'هجرة البيانات وجودتها، الامتثال والتتبع.'
         },
-        heroImage: '/assets/img/bg-data.jpg',
+        heroImage: '/public/assets/img/bg-data.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v8c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>`,
         tags: ['ETL/ELT', 'Snowflake', 'Databricks', 'Data Lake', 'Governance'],
         scope: {
@@ -188,7 +188,7 @@ const services = [
             en: 'Interactive reporting and real-time KPIs to drive performance.',
             ar: 'تقارير تفاعلية ومؤشرات أداء في الوقت الفعلي لقيادة الأداء.'
         },
-        heroImage: '/assets/img/bg-bi.jpg',
+        heroImage: '/public/assets/img/bg-bi.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V5"/><rect x="6" y="12" width="3" height="7" rx="1"/><rect x="11" y="8" width="3" height="11" rx="1"/><rect x="16" y="4" width="3" height="15" rx="1"/></svg>`,
         tags: ['Power BI', 'Tableau', 'Looker', 'KPI', 'Self-Service'],
         scope: {
@@ -247,7 +247,7 @@ const services = [
             en: 'Azure, AWS, GCP architectures. APIs, microservices and CI/CD.',
             ar: 'هندسة Azure و AWS و GCP. واجهات البرامج والميكروسيرفيس و CI/CD.'
         },
-        heroImage: '/assets/img/bg-cloud.jpg',
+        heroImage: '/public/assets/img/bg-cloud.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17a4 4 0 0 1 0-8c.3-2.9 2.6-5 5.5-5 3.1 0 5.5 2.5 5.5 5.6a4.5 4.5 0 0 1-1 8.9H9"/><circle cx="9" cy="19.5" r="1.2"/><circle cx="13" cy="19.5" r="1.2"/><path d="M10.2 19.5h1.6"/></svg>`,
         tags: ['Azure', 'AWS', 'GCP', 'Docker', 'CI/CD'],
         scope: {
@@ -306,7 +306,7 @@ const services = [
             en: 'GDPR, ISO 27001, banking/insurance requirements and observability.',
             ar: 'GDPR، ISO 27001، متطلبات الخدمات المصرفية/التأمين والملاحظة.'
         },
-        heroImage: '/assets/img/bg-securite.jpg',
+        heroImage: '/public/assets/img/bg-securite.jpg',
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.3 9.2-7 10-3.7-.8-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>`,
         tags: ['GDPR', 'ISO 27001', 'SOC 2', 'SIEM', 'Zero Trust'],
         scope: {

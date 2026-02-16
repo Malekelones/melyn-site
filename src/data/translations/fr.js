@@ -42,7 +42,7 @@ const fr = {
                 role: 'CEO & Fondatrice',
                 bio: 'Consultante en transformation digitale spécialisée en data, automatisation et plateformes métiers, accompagnant des organisations internationales sur des projets complexes.',
                 location: 'Paris / Tunis',
-                avatar: '/assets/img/malek_ceo.png',
+                avatar: '/public/assets/img/malek_ceo.png',
                 linkedin: 'https://www.linkedin.com/in/malek-ben-amor-b76542159/',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -51,7 +51,7 @@ const fr = {
                 role: 'Software Engineer',
                 bio: 'Ingénieure dynamique avec une solide expérience dans les applications basées sur l\'IA et les technologies web modernes.',
                 location: 'Tunis, Tunisie',
-                avatar: '/assets/img/sahar.jpeg',
+                avatar: '/public/assets/img/sahar.jpeg',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -60,7 +60,7 @@ const fr = {
                 role: 'Software Engineer',
                 bio: 'Développeur expérimenté spécialisé dans les architectures évolutives et le développement full-stack.',
                 location: 'Tunis, Tunisie',
-                avatar: '/assets/img/Hassene.png',
+                avatar: '/public/assets/img/Hassene.png',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             },
@@ -69,7 +69,7 @@ const fr = {
                 role: 'Software Engineer',
                 bio: 'Développeur passionné issu de l\'INSAT/ESPRIT, concentré sur la livraison de solutions numériques à fort impact.',
                 location: 'Tunis, Tunisie',
-                avatar: '/assets/img/motez.png',
+                avatar: '/public/assets/img/motez.png',
                 linkedin: '#',
                 email: 'mailto:contact@melyn.ai'
             }

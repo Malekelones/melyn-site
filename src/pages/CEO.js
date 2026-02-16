@@ -26,7 +26,7 @@ export function renderCEO() {
           <div class="ceo-hero-grid">
             <div class="ceo-image-wrap reveal">
               <div class="ceo-portrait-container">
-                <img src="/assets/img/malek-profile.png" alt="Malek Ben Amor" class="ceo-portrait" />
+                <img src="/public/assets/img/malek-profile.png" alt="Malek Ben Amor" class="ceo-portrait" />
                 <div class="ceo-image-glow"></div>
               </div>
             </div>

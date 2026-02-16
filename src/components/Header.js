@@ -52,7 +52,7 @@ export function renderHeader() {
             <span class="nav-link-text">${t('nav.contact')}</span>
           </a>
           <button class="lang-switch" id="langSwitchDesktop" data-lang="${nextLang}" aria-label="Switch language">
-            <span class="lang-flag">${nextLang === 'ar' ? '<img src="/assets/img/arab-league.svg" alt="AR" class="flag-img">' : (nextLang === 'en' ? '🇬🇧' : '🇫🇷')}</span>
+            <span class="lang-flag">${nextLang === 'ar' ? '<img src="/public/assets/img/arab-league.svg" alt="AR" class="flag-img">' : (nextLang === 'en' ? '🇬🇧' : '🇫🇷')}</span>
             <span class="lang-label">${t('nav.langLabel')}</span>
           </button>
         </nav>
@@ -91,7 +91,7 @@ export function renderHeader() {
         <span class="mobile-nav-icon">✦</span> ${t('nav.contact')}
       </a>
       <button class="lang-switch mobile-lang-switch" id="langSwitchMobile" data-lang="${nextLang}">
-        <span class="lang-flag">${nextLang === 'ar' ? '<img src="/assets/img/arab-league.svg" alt="AR" class="flag-img">' : (nextLang === 'en' ? '🇬🇧' : '🇫🇷')}</span>
+        <span class="lang-flag">${nextLang === 'ar' ? '<img src="/public/assets/img/arab-league.svg" alt="AR" class="flag-img">' : (nextLang === 'en' ? '🇬🇧' : '🇫🇷')}</span>
         <span class="lang-label">${t('nav.langLabel')}</span>
       </button>
       <a href="#" class="mobile-menu-cta" id="mobileCtaBtn">${t('nav.cta')}</a>
