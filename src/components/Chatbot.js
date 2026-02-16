@@ -5,14 +5,46 @@
    ============================================================ */
 
 import { matchIntent, getQuickReplies } from '../data/chatbotKB.js';
+import { matchIntent_en, getQuickReplies_en } from '../data/chatbotKB_en.js';
+import { matchIntent_ar, getQuickReplies_ar } from '../data/chatbotKB_ar.js';
+import { getLang, t } from '../i18n.js';
 
 /* ── Session key ── */
 const SESSION_KEY = 'melyn_chat_history';
 
+function getKBFunctions() {
+  const lang = getLang();
+  if (lang === 'en') {
+    return {
+      match: matchIntent_en,
+      qr: (entry) => getQuickReplies_en(entry),
+    };
+  }
+  if (lang === 'ar') {
+    return {
+      match: matchIntent_ar,
+      qr: (entry) => getQuickReplies_ar(entry),
+    };
+  }
+  // Wrap French KB to return { response, entry } like other KBs
+  return {
+    match: (msg) => {
+      const result = matchIntent(msg);
+      // Find the full entry object from the KB
+      return { response: result.response, entry: result.intent ? { intent: result.intent, quickReplies: result.quickReplies?.map(r => r.key) } : null };
+    },
+    qr: (entry) => {
+      if (!entry) return getQuickReplies(null);
+      if (typeof entry === 'string') return getQuickReplies(entry);
+      return getQuickReplies(entry.intent);
+    },
+  };
+}
+
 export function renderChatbot() {
   return `
     <!-- Chatbot Bubble -->
-    <button class="chatbot-bubble" id="chatbotBubble" aria-label="Ouvrir le chat">
+    <button class="chatbot-bubble" id="chatbotBubble" aria-label="${getLang() === 'en' ? 'Open chat' : 'Ouvrir le chat'}">
       <svg class="chatbot-bubble-icon chatbot-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2a9 9 0 0 1 9 9c0 5-4 9-9 9a9.4 9.4 0 0 1-4-.9L3 21l1.9-5A9 9 0 0 1 12 2z"/>
         <circle cx="8.5" cy="11" r="0.8" fill="currentColor" stroke="none"/>
@@ -47,14 +79,14 @@ export function renderChatbot() {
             </svg>
           </div>
           <div>
-            <div class="chatbot-header-name">MELYN Assistant</div>
+            <div class="chatbot-header-name">${t('chatbot.title')}</div>
             <div class="chatbot-header-status">
               <span class="chatbot-status-dot"></span>
-              En ligne
+              ${getLang() === 'en' ? 'Online' : 'En ligne'}
             </div>
           </div>
         </div>
-        <button class="chatbot-close" id="chatbotClose" aria-label="Fermer le chat">
+        <button class="chatbot-close" id="chatbotClose" aria-label="${getLang() === 'en' ? 'Close chat' : 'Fermer le chat'}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M18 6 6 18"/><path d="M6 6l12 12"/>
           </svg>
@@ -67,14 +99,14 @@ export function renderChatbot() {
 
       <div class="chatbot-input-area">
         <form class="chatbot-form" id="chatbotForm">
-          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Posez votre question…" autocomplete="off" />
-          <button type="submit" class="chatbot-send" aria-label="Envoyer">
+          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="${t('chatbot.placeholder')}" autocomplete="off" />
+          <button type="submit" class="chatbot-send" aria-label="${getLang() === 'en' ? 'Send' : 'Envoyer'}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9l20-7z"/>
             </svg>
           </button>
         </form>
-        <div class="chatbot-watermark">Powered by <strong>MELYN IA</strong></div>
+        <div class="chatbot-watermark">${t('chatbot.watermark')}</div>
       </div>
     </div>
     `;
@@ -95,6 +127,7 @@ export function initChatbot() {
   let isOpen = false;
   let hasGreeted = false;
   let lastIntent = null; // conversation context
+  const kb = getKBFunctions();
 
   /* ── Restore session history ── */
   function restoreHistory() {
@@ -143,15 +176,15 @@ export function initChatbot() {
       if (!hadHistory) {
         hasGreeted = true;
         setTimeout(() => {
-          const greeting = `👋 Bonjour ! Je suis l'assistant **MELYN**.\n\nComment puis-je vous aider aujourd'hui ?`;
+          const greeting = t('chatbot.greeting');
           const time = getTimestamp();
           addBotMessage(greeting, time);
           saveToHistory('bot', greeting, time, 'greeting');
-          setTimeout(() => showQuickReplies(getQuickReplies('greeting')), 600);
+          setTimeout(() => showQuickReplies(kb.qr({ quickReplies: ['services', getLang() === 'en' ? 'quote' : 'devis', 'contact', 'demo'] })), 600);
         }, 400);
       } else {
         // Show quick replies based on last context
-        setTimeout(() => showQuickReplies(getQuickReplies(lastIntent)), 300);
+        setTimeout(() => showQuickReplies(kb.qr(lastIntent)), 300);
       }
     }
 
@@ -210,15 +243,15 @@ export function initChatbot() {
     const delay = 400 + Math.random() * 500;
     setTimeout(() => {
       removeTypingIndicator();
-      const result = matchIntent(text);
+      const result = kb.match(text);
       const botTime = getTimestamp();
 
-      lastIntent = result.intent;
+      lastIntent = result.entry;
       addBotMessage(result.response, botTime);
-      saveToHistory('bot', result.response, botTime, result.intent);
+      saveToHistory('bot', result.response, botTime, result.entry?.intent);
 
       // Show dynamic quick replies after response
-      setTimeout(() => showQuickReplies(result.quickReplies), 500);
+      setTimeout(() => showQuickReplies(kb.qr(result.entry)), 500);
     }, delay);
   }
 
@@ -299,7 +332,7 @@ export function initChatbot() {
                 </svg>
             </div>
             <div class="chat-typing-bubble">
-                <span class="chat-typing-text">réfléchit</span>
+                <span class="chat-typing-text">${t('chatbot.thinking')}</span>
                 <div class="chat-typing-dots">
                     <span></span><span></span><span></span>
                 </div>
@@ -337,7 +370,9 @@ export function initChatbot() {
   /* ── Timestamp ── */
   function getTimestamp() {
     const now = new Date();
-    return now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    const lang = getLang();
+    const locale = lang === 'ar' ? 'ar-SA' : (lang === 'en' ? 'en-US' : 'fr-FR');
+    return now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
   }
 
   /* ── Notification sound (subtle, Web Audio API) ── */

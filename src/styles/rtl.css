@@ -1,0 +1,50 @@
+/* ============================================================
+   MELYN — RTL Overrides (Arabic)
+   ============================================================ */
+
+[dir="rtl"] .chatbot-bubble {
+    right: auto;
+    left: 1.5rem;
+}
+
+[dir="rtl"] .chatbot-window {
+    right: auto;
+    left: 24px;
+}
+
+[dir="rtl"] .mobile-menu {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+    border-left: none;
+    border-right: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+[dir="rtl"] .mobile-menu.open {
+    transform: translateX(0);
+}
+
+[dir="rtl"] .nav-link-arrow,
+[dir="rtl"] .footer-link-arrow {
+    display: inline-block;
+    transform: scaleX(-1);
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Fix for icons and arrows in RTL */
+[dir="rtl"] .mobile-nav-icon {
+    margin-right: 0;
+    margin-left: var(--space-md);
+}
+
+[dir="rtl"] .chatbot-send svg {
+    transform: scaleX(-1);
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .chatbot-window {
+        left: 0;
+        right: 0;
+    }
+}

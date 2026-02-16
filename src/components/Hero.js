@@ -2,6 +2,8 @@
    MELYN — Hero Component (Slideshow + Canvas particles + gradient orbs)
    ============================================================ */
 
+import { t } from '../i18n.js';
+
 const HERO_SLIDES = [
     '/assets/img/hero_slide_01.jpg',
     '/assets/img/hero_slide_02.jpg',
@@ -31,17 +33,17 @@ export function renderHero() {
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
       <div class="hero-content">
         <div class="hero-badge">
-          IA Data Consulting
+          ${t('hero.badge')}
         </div>
         <h1 class="hero-title">
-          Transformez vos données<br>en avantage stratégique
+          ${t('hero.title')}
         </h1>
         <p class="hero-subtitle">
-          Solutions IA, Data & Cloud sur mesure — de la stratégie à la mise en production, sécurisées et alignées sur vos enjeux métiers.
+          ${t('hero.subtitle')}
         </p>
         <div class="hero-actions">
-          <a href="#/services" class="btn btn-primary">Découvrir nos services</a>
-          <a href="#/contact" class="btn btn-outline" id="demoBtn">Demander une démo</a>
+          <a href="#/services" class="btn btn-primary">${t('hero.ctaPrimary')}</a>
+          <a href="#/contact" class="btn btn-outline" id="demoBtn">${t('hero.ctaSecondary')}</a>
         </div>
       </div>
     </section>

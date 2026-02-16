@@ -2,8 +2,17 @@
    MELYN — Footer Component
    ============================================================ */
 
+import { t } from '../i18n.js';
+import services from '../data/services.js';
+import { localized } from '../i18n.js';
+
 export function renderFooter() {
   const year = new Date().getFullYear();
+
+  const serviceLinks = services.map(s => `
+              <a href="#/services/${s.id}" class="footer-link">
+                <span class="footer-link-arrow">→</span> ${localized(s.title)}
+              </a>`).join('');
 
   return `
     <footer class="footer" id="section-contact">
@@ -17,10 +26,10 @@ export function renderFooter() {
             <a href="#/" class="footer-logo" aria-label="MELYN">
               <span class="footer-brand-name">MELYN</span>
               <span class="footer-brand-separator">·</span>
-              <span class="footer-brand-sub">IA Data Consulting</span>
+              <span class="footer-brand-sub">${t('hero.badge')}</span>
             </a>
             <p class="footer-brand-desc">
-              Votre partenaire pour une stratégie data & IA sur mesure — de l'idée à la production.
+              ${t('footer.brandDesc')}
             </p>
             <div class="footer-socials">
               <a href="https://www.linkedin.com/in/malek-ben-amor-52691071/" target="_blank" rel="noopener noreferrer" class="social-link social-link--linkedin" aria-label="LinkedIn">
@@ -35,10 +44,10 @@ export function renderFooter() {
             </div>
           </div>
           <div class="footer-newsletter">
-            <h4 class="footer-heading">Restez informé</h4>
-            <p class="footer-newsletter-desc">Recevez nos derniers articles sur l'IA, la data et le cloud.</p>
+            <h4 class="footer-heading">${t('footer.stayInformed')}</h4>
+            <p class="footer-newsletter-desc">${t('footer.newsletterDesc')}</p>
             <form class="footer-newsletter-form" onsubmit="event.preventDefault();">
-              <input type="email" placeholder="votre@email.com" class="footer-newsletter-input" />
+              <input type="email" placeholder="${t('footer.emailPlaceholder')}" class="footer-newsletter-input" />
               <button type="submit" class="footer-newsletter-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
@@ -53,51 +62,34 @@ export function renderFooter() {
         <div class="footer-columns reveal">
           <!-- Services -->
           <div>
-            <h4 class="footer-heading">Services</h4>
+            <h4 class="footer-heading">${t('footer.servicesHeading')}</h4>
             <div class="footer-links">
-              <a href="#/services/ia" class="footer-link">
-                <span class="footer-link-arrow">→</span> Intelligence Artificielle
-              </a>
-              <a href="#/services/automatisation" class="footer-link">
-                <span class="footer-link-arrow">→</span> Automatisation
-              </a>
-              <a href="#/services/data" class="footer-link">
-                <span class="footer-link-arrow">→</span> Gestion des données
-              </a>
-              <a href="#/services/bi" class="footer-link">
-                <span class="footer-link-arrow">→</span> Business Intelligence
-              </a>
-              <a href="#/services/cloud" class="footer-link">
-                <span class="footer-link-arrow">→</span> Cloud & Intégration
-              </a>
-              <a href="#/services/securite" class="footer-link">
-                <span class="footer-link-arrow">→</span> Sécurité & Conformité
-              </a>
+              ${serviceLinks}
             </div>
           </div>
 
           <!-- Resources -->
           <div>
-            <h4 class="footer-heading">Ressources</h4>
+            <h4 class="footer-heading">${t('footer.resourcesHeading')}</h4>
             <div class="footer-links">
-              <span class="footer-link"><span class="footer-link-arrow">→</span> Blog</span>
-              <span class="footer-link"><span class="footer-link-arrow">→</span> Études de cas</span>
-              <span class="footer-link"><span class="footer-link-arrow">→</span> Livres blancs</span>
-              <span class="footer-link"><span class="footer-link-arrow">→</span> Documentation</span>
+              <span class="footer-link"><span class="footer-link-arrow">→</span> ${t('footer.blog')}</span>
+              <span class="footer-link"><span class="footer-link-arrow">→</span> ${t('footer.caseStudies')}</span>
+              <span class="footer-link"><span class="footer-link-arrow">→</span> ${t('footer.whitepapers')}</span>
+              <span class="footer-link"><span class="footer-link-arrow">→</span> ${t('footer.documentation')}</span>
             </div>
           </div>
 
           <!-- Contact -->
           <div>
-            <h4 class="footer-heading">Contact</h4>
+            <h4 class="footer-heading">${t('footer.contactHeading')}</h4>
             <div class="footer-contact-cards">
               <div class="footer-contact-item">
                 <div class="footer-contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div>
-                  <p class="footer-contact-label">Paris</p>
-                  <p class="footer-contact-value">58 Rue de Monceau<br>75008 Paris, France</p>
+                  <p class="footer-contact-label">${t('footer.labelParis')}</p>
+                  <p class="footer-contact-value">${t('footer.addressParis')}</p>
                 </div>
               </div>
               <div class="footer-contact-item">
@@ -105,8 +97,8 @@ export function renderFooter() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div>
-                  <p class="footer-contact-label">Tunis</p>
-                  <p class="footer-contact-value">Centre Urbain Nord, Imm. Le Palace<br>4ème étage, bureau 4-8 — CP 1082 Tunis</p>
+                  <p class="footer-contact-label">${t('footer.labelTunis')}</p>
+                  <p class="footer-contact-value">${t('footer.addressTunis')}</p>
                 </div>
               </div>
               <div class="footer-contact-item">
@@ -114,7 +106,7 @@ export function renderFooter() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
                 <div>
-                  <p class="footer-contact-label">Téléphone</p>
+                  <p class="footer-contact-label">${t('footer.labelPhone')}</p>
                   <a href="tel:+33620015297" class="footer-contact-value footer-contact-link">🇫🇷 +33 6 20 01 52 97</a>
                   <a href="tel:+21629994532" class="footer-contact-value footer-contact-link">🇹🇳 +216 29 994 532</a>
                 </div>
@@ -124,7 +116,7 @@ export function renderFooter() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <div>
-                  <p class="footer-contact-label">Email</p>
+                  <p class="footer-contact-label">${t('footer.labelEmail')}</p>
                   <a href="mailto:contact@melynia.com" class="footer-contact-value footer-contact-link">contact@melynia.com</a>
                 </div>
               </div>
@@ -134,17 +126,17 @@ export function renderFooter() {
 
         <!-- Bottom bar -->
         <div class="footer-bottom">
-          <p>© ${year} MELYN — IA Data Consulting. Tous droits réservés.</p>
+          <p>${t('footer.copyright')}</p>
           <div class="footer-bottom-links">
-            <span class="footer-bottom-link">Politique de confidentialité</span>
-            <span class="footer-bottom-link">Mentions légales</span>
-            <span class="footer-bottom-link">CGU</span>
+            <span class="footer-bottom-link">${t('footer.privacy')}</span>
+            <span class="footer-bottom-link">${t('footer.legal')}</span>
+            <span class="footer-bottom-link">${t('footer.terms')}</span>
           </div>
         </div>
       </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 15l-6-6-6 6"/>
       </svg>
