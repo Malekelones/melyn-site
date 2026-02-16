@@ -2,11 +2,6 @@
    MELYN — Main Entry Point
    ============================================================ */
 
-// Styles
-import './styles/base.css';
-import './styles/components.css';
-import './styles/rtl.css';
-
 // i18n (must be imported early so lang is set)
 import './i18n.js';
 
